@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.shoreguard.com.ua/sitemap.xml
