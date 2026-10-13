@@ -1,0 +1,185 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/services",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/technologies",
+      "destination": "/#technologies",
+      "permanent": true
+    },
+    {
+      "source": "/technologies.html",
+      "destination": "/#technologies",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects.html",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/process",
+      "destination": "/#process",
+      "permanent": true
+    },
+    {
+      "source": "/process.html",
+      "destination": "/#process",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/faq.html",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/contacts",
+      "destination": "/#contacts",
+      "permanent": true
+    },
+    {
+      "source": "/contacts.html",
+      "destination": "/#contacts",
+      "permanent": true
+    },
+    {
+      "source": "/ru/services",
+      "destination": "/ru/#services",
+      "permanent": true
+    },
+    {
+      "source": "/ru/services.html",
+      "destination": "/ru/#services",
+      "permanent": true
+    },
+    {
+      "source": "/ru/technologies",
+      "destination": "/ru/#technologies",
+      "permanent": true
+    },
+    {
+      "source": "/ru/technologies.html",
+      "destination": "/ru/#technologies",
+      "permanent": true
+    },
+    {
+      "source": "/ru/projects",
+      "destination": "/ru/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/ru/projects.html",
+      "destination": "/ru/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/ru/process",
+      "destination": "/ru/#process",
+      "permanent": true
+    },
+    {
+      "source": "/ru/process.html",
+      "destination": "/ru/#process",
+      "permanent": true
+    },
+    {
+      "source": "/ru/faq",
+      "destination": "/ru/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/ru/faq.html",
+      "destination": "/ru/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/ru/contacts",
+      "destination": "/ru/#contacts",
+      "permanent": true
+    },
+    {
+      "source": "/ru/contacts.html",
+      "destination": "/ru/#contacts",
+      "permanent": true
+    },
+    {
+      "source": "/en/services",
+      "destination": "/en/#services",
+      "permanent": true
+    },
+    {
+      "source": "/en/services.html",
+      "destination": "/en/#services",
+      "permanent": true
+    },
+    {
+      "source": "/en/technologies",
+      "destination": "/en/#technologies",
+      "permanent": true
+    },
+    {
+      "source": "/en/technologies.html",
+      "destination": "/en/#technologies",
+      "permanent": true
+    },
+    {
+      "source": "/en/projects",
+      "destination": "/en/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/en/projects.html",
+      "destination": "/en/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/en/process",
+      "destination": "/en/#process",
+      "permanent": true
+    },
+    {
+      "source": "/en/process.html",
+      "destination": "/en/#process",
+      "permanent": true
+    },
+    {
+      "source": "/en/faq",
+      "destination": "/en/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/en/faq.html",
+      "destination": "/en/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/en/contacts",
+      "destination": "/en/#contacts",
+      "permanent": true
+    },
+    {
+      "source": "/en/contacts.html",
+      "destination": "/en/#contacts",
+      "permanent": true
+    }
+  ]
+}
