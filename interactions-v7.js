@@ -56,7 +56,7 @@
   }
   const actions=document.querySelector('.header-actions'),toolSlot=document.querySelector('.mobile-menu-tools');
   const themeTools=document.querySelector('.themes'),languageTools=document.querySelector('.language');
-  function placeTools(){if(mobile.matches){toolSlot.append(themeTools,languageTools);}else{actions.prepend(themeTools,languageTools);}}
+  function placeTools(){actions.prepend(themeTools,languageTools);}
   placeTools();mobile.addEventListener('change',placeTools);
   document.querySelectorAll('a[href^="#"]').forEach(a=>{if(!a.hasAttribute('data-album'))a.addEventListener('click',()=>closeMenu());});
   document.querySelector('.menu-backdrop').addEventListener('click',()=>closeMenu(true));
@@ -71,7 +71,8 @@
   document.addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(true); });
   document.addEventListener('click', e => { if(!e.target.closest('header')) closeMenu(); });
   const header = document.querySelector('header');
-  const updateHeader=()=>header.classList.toggle('scrolled',scrollY>30);
+  const bottom=document.querySelector('.mobile-bottom');
+  const updateHeader=()=>{header.classList.toggle('scrolled',scrollY>30);const visible=scrollY>80;bottom.classList.toggle('visible',visible);bottom.inert=!visible;};
   addEventListener('scroll',updateHeader,{passive:true});updateHeader();
 
   // Native details remain usable without JS. Height transitions reverse from the visible height.
@@ -121,12 +122,26 @@
   const filterStatus = document.querySelector('#filter-status');
   let filterTimer,filterGeneration=0;
   const workGrid=document.querySelector('.work-grid');
+  const projectWindow=document.querySelector('.projects-window'),more=document.querySelector('.projects-more'),small=matchMedia('(max-width:700px)');
+  let expanded=false;
+  function sizeProjects(){
+    const shown=cards.filter(c=>!c.hidden),columns=getComputedStyle(workGrid).gridTemplateColumns.split(' ').length,limited=shown.length>columns;
+    more.hidden=!limited;more.setAttribute('aria-expanded',String(expanded));
+    more.textContent=expanded?({uk:'Згорнути',ru:'Свернуть',en:'Show less'}[root.lang]):({uk:'Дивитись ще',ru:'Смотреть ещё',en:'View more'}[root.lang]);
+    projectWindow.classList.toggle('collapsed',limited&&!expanded);
+    const height=limited&&!expanded?shown[columns].offsetTop-workGrid.offsetTop+shown[columns].offsetHeight*.5:workGrid.scrollHeight;
+    projectWindow.style.height=height+'px';
+    shown.forEach((card,i)=>{card.inert=limited&&!expanded&&i>=columns;});
+  }
+  more.addEventListener('click',()=>{expanded=!expanded;sizeProjects();});
+  new ResizeObserver(sizeProjects).observe(workGrid);small.addEventListener('change',sizeProjects);sizeProjects();
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     const generation=++filterGeneration;clearTimeout(filterTimer);
     document.querySelectorAll('[data-filter]').forEach(b => {b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
     const apply=()=>{
       if(generation!==filterGeneration)return;
       cards.forEach(card=>{card.hidden=button.dataset.filter!=='all'&&card.dataset.category!==button.dataset.filter;if(!card.hidden)card.classList.add('revealed');});
+      sizeProjects();
       filterStatus.textContent=`${text.count}: ${cards.filter(c=>!c.hidden).length}`;
       requestAnimationFrame(()=>{if(generation===filterGeneration)workGrid.classList.remove('filter-leaving');});
     };
