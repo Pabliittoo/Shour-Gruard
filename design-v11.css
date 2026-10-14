@@ -184,3 +184,35 @@ html[data-theme=ocean] .bg-grain{opacity:.025}
 .hero-actions>.hero-call{background:color-mix(in srgb,var(--bg) 30%,transparent);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
 .faq-layout{grid-template-columns:1fr;gap:0}.faq-layout .questions{width:100%}.projects-more:not([hidden]){display:flex;margin:24px auto 0}
 @media(min-width:1051px){.work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* Original theme videos; one continuous background below content */
+.bg-scene{background:var(--bg);overflow:hidden}.bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;filter:none}
+.themes{display:flex;align-items:center;gap:0;padding:3px;border-radius:99px;overflow:visible;flex-shrink:0}.themes:before{display:none!important}.themes button{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;padding:10px;border-radius:50%;background:transparent;transform:none!important}.themes button[aria-pressed=true]{background:var(--ink);color:var(--bg)}.themes svg{display:block;width:20px;height:20px;flex-shrink:0}
+@media(max-width:1050px){.themes button{flex-basis:36px;width:36px;height:36px;padding:8px}}
+@media(prefers-reduced-motion:reduce){.bg-video{object-fit:cover}}
+/* Frosted surfaces keep text legible over the moving theme background. */
+:root{--glass-surface:rgba(246,242,235,.79);--glass-border:rgba(255,255,255,.54);--glass-muted:#575048}
+html[data-theme=ocean]{--glass-surface:rgba(11,31,51,.79);--glass-border:rgba(142,177,208,.25);--glass-muted:#c2d1df}
+.benefit-bar.wrap,#services .service,#projects.page-section,#faq.page-section,#contacts.page-section,#technologies>.section-heading{background:var(--glass-surface);border:1px solid var(--glass-border);border-radius:24px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 12px 38px #00000009}
+.benefit-bar.wrap{width:calc(100% - 2 * var(--gutter));max-width:1400px;margin:28px auto;padding:20px 28px}.benefit-bar>span{border:0;padding:16px 8px;background:none;box-shadow:none}
+#services .services{gap:24px}#services .service{padding:32px}#services .service p{color:var(--glass-muted)}
+#projects.page-section,#faq.page-section,#contacts.page-section{width:calc(100% - 2 * var(--gutter));max-width:1400px;margin:56px auto;overflow:visible}
+#projects>.wrap,#faq>.wrap,#contacts>.wrap{width:100%;max-width:none;padding-left:32px;padding-right:32px}
+#projects>.section-heading,#faq>.section-heading,#contacts>.section-heading{padding-top:40px}
+#projects>.content-wrap,#faq>.content-wrap,#contacts>.content-wrap{padding-bottom:40px}
+#technologies>.section-heading{width:calc(100% - 2 * var(--gutter));max-width:1400px;margin:0 auto 28px;padding:32px}
+#projects .muted,#projects .small,#faq .muted,#faq .answer p,#contacts .muted,#technologies>.section-heading .muted{color:var(--glass-muted)}
+.projects-window.collapsed{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 calc(100% - 155px),transparent calc(100% - 8px),transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 calc(100% - 155px),transparent calc(100% - 8px),transparent 100%)}
+.projects-window.collapsed:after{height:155px;background:transparent;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000)}
+@media(max-width:700px){.benefit-bar.wrap,#projects.page-section,#faq.page-section,#contacts.page-section,#technologies>.section-heading{width:calc(100% - 28px);border-radius:18px}.benefit-bar.wrap{padding:14px 20px;margin:20px auto}.benefit-bar>span{padding:16px 0}#services .service{padding:24px;border-radius:18px}#projects>.wrap,#faq>.wrap,#contacts>.wrap{padding-left:18px;padding-right:18px}#technologies>.section-heading{padding:26px 22px}#projects>.section-heading,#faq>.section-heading,#contacts>.section-heading{padding-top:28px}.projects-window.collapsed{-webkit-mask-image:linear-gradient(#000 calc(100% - 100px),transparent calc(100% - 6px));mask-image:linear-gradient(#000 calc(100% - 100px),transparent calc(100% - 6px))}.projects-window.collapsed:after{height:100px}}
+/* Unified glass panels and theme-aware hover feedback. */
+.story>.story-grid,#process.page-section{background:var(--glass-surface);border:1px solid var(--glass-border);border-radius:24px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 12px 38px #00000009;width:calc(100% - 2 * var(--gutter));max-width:1400px;margin:56px auto}
+.story>.story-grid{padding:32px;gap:40px}.story>.story-grid .muted,#process .muted{color:var(--glass-muted)}
+#process>.wrap{width:100%;max-width:none;padding-left:32px;padding-right:32px}#process>.section-heading{padding-top:40px}#process>.content-wrap{padding-bottom:40px}
+:root{--panel-glow:rgba(141,110,86,.22)}html[data-theme=ocean]{--panel-glow:rgba(79,123,167,.35)}
+.story>.story-grid,#process.page-section,.benefit-bar.wrap,#services .service,#projects.page-section,#faq.page-section,#contacts.page-section,#technologies>.section-heading,.methods-list article,.process-list article,.note-panel,.work-card,.questions details{transition:box-shadow 280ms ease,border-color 280ms ease,background-color 280ms ease,opacity 600ms ease,transform 600ms ease}
+@media(hover:hover) and (pointer:fine){
+.story>.story-grid:hover,#process.page-section:hover,.benefit-bar.wrap:hover,#services .service:hover,#projects.page-section:hover,#faq.page-section:hover,#contacts.page-section:hover,#technologies>.section-heading:hover,.methods-list article:hover,.process-list article:hover,.note-panel:hover,.work-card:hover,.questions details:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--panel-glow),0 10px 36px var(--panel-glow),inset 0 0 32px var(--panel-glow)}
+}
+@media(min-width:1051px){#contacts.page-section{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start;padding:40px 32px;gap:48px}#contacts>.section-heading,#contacts>.content-wrap{padding:0;margin:0;width:100%}#contacts>.content-wrap{padding-top:48px}#contacts .contact-info{padding:0}#contacts .phone{font-size:clamp(25px,2.5vw,36px);max-width:100%}}
+@media(max-width:700px){.story>.story-grid,#process.page-section{width:calc(100% - 28px);border-radius:18px;margin:32px auto}.story>.story-grid{padding:24px 20px;gap:24px}#process>.wrap{padding-left:20px;padding-right:20px}#process>.section-heading{padding-top:28px}}
+@media(prefers-reduced-motion:reduce){.story>.story-grid,#process.page-section,.benefit-bar.wrap,#services .service,#projects.page-section,#faq.page-section,#contacts.page-section,#technologies>.section-heading,.methods-list article,.process-list article,.note-panel,.work-card,.questions details{transition:none}}

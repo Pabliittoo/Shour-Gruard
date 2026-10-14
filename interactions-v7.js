@@ -15,9 +15,19 @@
   if (root.classList.contains('intro-playing')) setTimeout(finishIntro, reduce.matches ? 350 : 1100);
   else finishIntro();
 
+  const bgVideo=document.querySelector('.bg-video');
+  function updateBackground(){
+    const theme=root.dataset.theme;
+    bgVideo.poster='/assets/bg/'+theme+'.webp';
+    bgVideo.muted=true;
+    if(bgVideo.dataset.theme!==theme){bgVideo.dataset.theme=theme;bgVideo.src='/assets/bg/'+theme+'.mp4';bgVideo.load();}
+    if(reduce.matches||document.hidden)bgVideo.pause();else bgVideo.play().catch(()=>{});
+  }
+  bgVideo.addEventListener('loadedmetadata',()=>{bgVideo.currentTime=.15;});
+  reduce.addEventListener('change',updateBackground);document.addEventListener('visibilitychange',updateBackground);
   const themes = document.querySelectorAll('[data-set-theme]');
   function setTheme(theme) {
-    root.dataset.theme = theme === 'ocean' ? 'ocean' : 'sand';
+    root.dataset.theme = theme === 'ocean' ? 'ocean' : 'sand';updateBackground();
     const hero=document.querySelector('#hero-image');if(hero){const src='/assets/shore-guard-brand/hero-'+root.dataset.theme+'.webp';if(hero.getAttribute('src')!==src)hero.src=src;}
     document.querySelector('meta[name="theme-color"]').content = root.dataset.theme === 'ocean' ? '#0B1F33' : '#F6F2EB';
     themes.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setTheme === root.dataset.theme)));
