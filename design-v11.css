@@ -216,3 +216,33 @@ html[data-theme=ocean]{--glass-surface:rgba(11,31,51,.79);--glass-border:rgba(14
 @media(min-width:1051px){#contacts.page-section{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start;padding:40px 32px;gap:48px}#contacts>.section-heading,#contacts>.content-wrap{padding:0;margin:0;width:100%}#contacts>.content-wrap{padding-top:48px}#contacts .contact-info{padding:0}#contacts .phone{font-size:clamp(25px,2.5vw,36px);max-width:100%}}
 @media(max-width:700px){.story>.story-grid,#process.page-section{width:calc(100% - 28px);border-radius:18px;margin:32px auto}.story>.story-grid{padding:24px 20px;gap:24px}#process>.wrap{padding-left:20px;padding-right:20px}#process>.section-heading{padding-top:28px}}
 @media(prefers-reduced-motion:reduce){.story>.story-grid,#process.page-section,.benefit-bar.wrap,#services .service,#projects.page-section,#faq.page-section,#contacts.page-section,#technologies>.section-heading,.methods-list article,.process-list article,.note-panel,.work-card,.questions details{transition:none}}
+/* Fixed-size theme controls across browsers, including iOS Safari. */
+header .themes{box-sizing:border-box;display:grid;grid-template-columns:40px 40px;grid-template-rows:40px;gap:0;padding:3px;width:88px;min-width:88px;height:48px;align-items:center;justify-items:center;flex:none}
+header .themes button{box-sizing:border-box;appearance:none;-webkit-appearance:none;width:40px!important;min-width:40px!important;max-width:40px!important;height:40px!important;min-height:40px!important;max-height:40px!important;aspect-ratio:1/1;flex:none;padding:10px!important;margin:0;border:0;line-height:1;border-radius:50%;transform:none!important}
+header .themes:before{content:none!important}header .themes button svg{width:20px;height:20px;display:block;margin:0}
+.hero{height:auto!important;min-height:100vh!important;min-height:100dvh!important}.hero-photo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover}.hero-content{min-height:100vh;min-height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}
+#services.page-section,footer{width:calc(100% - 2 * var(--gutter));max-width:1400px;margin:40px auto;background:var(--glass-surface);border:1px solid var(--glass-border);border-radius:24px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+#services>.wrap,footer>.wrap{width:100%;max-width:none;padding-left:32px;padding-right:32px}#services>.section-heading{padding-top:36px}#services>.content-wrap{padding-bottom:36px}.agency-credit{display:flex;align-items:center;justify-content:center;min-height:48px;padding:14px 24px;border-top:1px solid var(--line);font-size:13px;color:var(--ink)}
+@media(min-width:1051px){.story>.story-grid,#process.page-section,#projects.page-section,#faq.page-section,#contacts.page-section{margin-top:36px;margin-bottom:36px}.page-section{padding-top:0;padding-bottom:0}#technologies>.content-wrap{padding-bottom:36px}.story{padding-top:0;padding-bottom:0}}
+@media(max-width:1050px){header .themes{grid-template-columns:36px 36px;grid-template-rows:36px;width:80px;min-width:80px;height:44px}header .themes button{width:36px!important;min-width:36px!important;max-width:36px!important;height:36px!important;min-height:36px!important;max-height:36px!important;padding:8px!important}}
+@media(max-width:700px){.hero-content{padding-top:110px!important;padding-bottom:46px!important;min-height:100dvh!important}.hero{margin:0;padding-top:0!important}#services.page-section,footer{width:calc(100% - 28px);border-radius:18px;margin:28px auto}#services>.wrap,footer>.wrap{padding-left:20px;padding-right:20px}}
+/* Remove inherited multi-page minimum heights and excess section spacing. */
+.page-section>.content-wrap{min-height:0}#contacts .contact-info{min-height:0}#contacts>.content-wrap{padding-bottom:32px}
+@media(min-width:1051px){.page-section>.section-heading{padding-bottom:28px}.page-section>.content-wrap{padding-bottom:32px}#technologies>.section-heading{margin-bottom:24px}.large-note{margin-top:32px}.footer-grid{padding-top:40px;padding-bottom:32px}#contacts>.content-wrap{padding-bottom:0}}
+
+/* Mobile footer: clear groups, shared alignment and compact rhythm. */
+@media(max-width:700px){
+ footer>.footer-grid{display:flex;flex-direction:column;gap:0;padding:28px 22px 20px}
+ .footer-intro{display:contents}
+ .footer-intro>.brand{order:0;width:172px;margin:0 0 16px}
+ .footer-intro>p{order:1;margin:0 0 22px;font-size:13px;line-height:1.65;max-width:32ch}
+ .footer-links{order:2;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px}
+ .footer-links a{min-height:42px}
+ .footer-contact{order:3;padding:18px 0 14px}
+ .footer-contact>a{font-size:19px;font-weight:600;line-height:1.4;min-height:44px;margin:0}
+ .footer-contact p{font-size:13px;margin:10px 0 16px;line-height:1.5}
+ .footer-contact .language-links{border-top:1px solid var(--line);padding-top:10px;gap:20px;font-size:12px}
+ .footer-copyright{order:4;display:block;border-top:1px solid var(--line);padding-top:16px;font-size:11px;line-height:1.7}
+ .footer-copyright br{display:block}
+ .agency-credit{font-size:12px;min-height:48px;padding:14px 16px;text-align:center}
+}
